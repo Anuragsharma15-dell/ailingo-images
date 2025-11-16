@@ -2,10 +2,12 @@ import { useState } from "react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { ImageGenerator } from "@/components/ImageGenerator";
 import { Sparkles } from "lucide-react";
-import { getTranslation, Language } from "@/lib/translations";
+import { Language } from "@/lib/translations";
+import { useLingoTranslations } from "@/hooks/useLingoTranslations";
 
 const Index = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>("en");
+  const { t } = useLingoTranslations(selectedLanguage);
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -35,11 +37,11 @@ const Index = () => {
         <div className="text-center space-y-6 mb-16">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              {getTranslation(selectedLanguage, "title")}
+              {t("title")}
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            {getTranslation(selectedLanguage, "subtitle")}
+            {t("subtitle")}
           </p>
         </div>
 
@@ -49,7 +51,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="relative z-10 container mx-auto px-4 py-8 text-center text-muted-foreground">
         <p className="text-sm">
-          {getTranslation(selectedLanguage, "poweredBy")}
+          {t("poweredBy")} & Lingo.dev
         </p>
       </footer>
     </div>
