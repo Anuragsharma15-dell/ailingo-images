@@ -1,73 +1,123 @@
-# Welcome to your Lovable project
+🌍 Multilingual AI Image Generation Platform
+High-quality AI image generation with 5–7 language support — powered by Lingo.dev & Node.js
 
-## Project info
+This platform allows users to generate stunning AI images using natural-language prompts in multiple languages. Designed for global creators and developers, it integrates Lingo.dev for multilingual prompt processing, a React + TypeScript frontend, and a Node.js REST API backend with Supabase for authentication, storage, and data management.
 
-**URL**: https://lovable.dev/projects/16ff1c7a-f838-44df-a7ab-289a206f818d
+🚀 Key Features
+🔤 Multilingual Prompt Support (5–7 Languages)
 
-## How can I edit this code?
+Supports:
 
-There are several ways of editing your application.
+English
 
-**Use Lovable**
+Hindi
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/16ff1c7a-f838-44df-a7ab-289a206f818d) and start prompting.
+Spanish
 
-Changes made via Lovable will be committed automatically to this repo.
+French
 
-**Use your preferred IDE**
+German
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Arabic
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Japanese (or replace with your supported languages)
 
-Follow these steps:
+✨ Powered by Lingo.dev for:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Accurate prompt translation & understanding
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Automatic language detection
 
-# Step 3: Install the necessary dependencies.
-npm i
+Style and meaning preservation across languages
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+🖼️ AI Image Generation
 
-**Edit a file directly in GitHub**
+High-quality images
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Multiple styles (Realistic, 3D, Anime, Cinematic, etc.)
 
-**Use GitHub Codespaces**
+Adjustable resolution
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Variation, enhancement, and regeneration options
 
-## What technologies are used for this project?
+🌎 Localized UI/UX
 
-This project is built with:
+React TypeScript UI
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Language selector
 
-## How can I deploy this project?
+Dynamic text replacement
 
-Simply open [Lovable](https://lovable.dev/projects/16ff1c7a-f838-44df-a7ab-289a206f818d) and click on Share -> Publish.
+RTL support for Arabic (if enabled)
 
-## Can I connect a custom domain to my Lovable project?
+🛠️ Developer-Friendly API
 
-Yes, you can!
+Node.js REST API
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Simple /generate endpoint for generation tasks
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Webhook-ready structure
+
+Secure Supabase auth integration
+
+💾 Supabase Integration
+
+User authentication
+
+Prompt + generation history
+
+Image storage
+
+Role-based permissions
+
+🧩 Architecture Overview
+Frontend (React + TypeScript)
+        ↓
+Lingo.dev (Language processing)
+        ↓
+Node.js REST API (Image generation logic)
+        ↓
+AI Model Provider (OpenAI/Stability/custom)
+        ↓
+Supabase (Auth + Database + Storage)
+
+📦 Tech Stack
+Frontend
+
+React
+
+TypeScript
+
+Tailwind CSS
+
+Lingo.dev SDK
+
+Backend
+
+Node.js
+
+Express / Fastify REST API
+
+AI model integration (OpenAI, Stable Diffusion, etc.)
+
+Database & Storage
+
+Supabase PostgreSQL
+
+Supabase Auth
+
+Supabase Storage (images)
+
+🧪 Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/<your-org>/<your-repo>.git
+cd multilingual-image-platform
+
+2️⃣ Install dependencies
+npm install
+
+
+🤝 Contributing
+
+Contributions are welcome!
+Please open an issue before submitting a major change
