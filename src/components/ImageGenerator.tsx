@@ -5,7 +5,8 @@ import { Card } from "@/components/ui/card";
 import { Loader2, Sparkles, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { getTranslation, Language } from "@/lib/translations";
+import { Language } from "@/lib/translations";
+import { useLingoTranslations } from "@/hooks/useLingoTranslations";
 
 interface ImageGeneratorProps {
   language: Language;
@@ -15,10 +16,11 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
   const [prompt, setPrompt] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  const { t } = useLingoTranslations(language);
 
   const handleGenerate = async () => {
     if (!prompt.trim()) {
-      toast.error(getTranslation(language, "errorPrompt"));
+      toast.error(t("errorPrompt"));
       return;
     }
 
@@ -34,13 +36,13 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
 
       if (data?.imageUrl) {
         setGeneratedImage(data.imageUrl);
-        toast.success(getTranslation(language, "successMessage"));
+        toast.success(t("successMessage"));
       } else {
         throw new Error("No image received");
       }
     } catch (error: any) {
       console.error("Error generating image:", error);
-      toast.error(error.message || getTranslation(language, "errorMessage"));
+      toast.error(error.message || t("errorMessage"));
     } finally {
       setIsGenerating(false);
     }
@@ -55,7 +57,7 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    toast.success(getTranslation(language, "downloadSuccess"));
+    toast.success(t("downloadSuccess"));
   };
 
   return (
@@ -63,7 +65,7 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
       <Card className="p-6 space-y-6 bg-card border-border shadow-elevated">
         <div className="space-y-4">
           <Textarea
-            placeholder={getTranslation(language, "placeholder")}
+            placeholder={t("placeholder")}
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className="min-h-[120px] text-lg resize-none bg-secondary border-border focus:border-primary transition-colors"
@@ -77,12 +79,12 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
             {isGenerating ? (
               <>
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                {getTranslation(language, "generating")}
+                {t("generating")}
               </>
             ) : (
               <>
                 <Sparkles className="mr-2 h-5 w-5" />
-                {getTranslation(language, "generateButton")}
+                {t("generateButton")}
               </>
             )}
           </Button>
@@ -105,7 +107,7 @@ export const ImageGenerator = ({ language }: ImageGeneratorProps) => {
               className="w-full h-12 font-semibold"
             >
               <Download className="mr-2 h-4 w-4" />
-              {getTranslation(language, "downloadButton")}
+              {t("downloadButton")}
             </Button>
           </div>
         </Card>
